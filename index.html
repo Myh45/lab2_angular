@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app = 'ShoppingListApp'>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <script src="angular-1.8.2/angular.min.js"></script>
+        <script src="app.js"></script>
+         <link rel="stylesheet" href="style.css">
+        <title>Lab2_angular</title>
+</head>
+<body>
+    <div>
+    
+    <h3>Купити</h3>
+        <div ng-controller="ShoppingListController as shoppingList">
+            <div ng-if="shoppingList.shoppingList.length===0">Усе куплено</div>
+        <ul>
+        <!--
+        <input type="text" ng-model="newItemName">
+        <input type="text" ng-model="newItemQuantity">
+            <button type="button" class="btn btn-outline-dark" ng-click="shoppingList.addToList()">Добавити</button>
+            --> 
+        <li ng-repeat="item in shoppingList.shoppingList"> Купити {{item.quantity}} {{item.name}}
+            <button type="button" class="btn btn-outline-dark" ng-click="shoppingList.sell($index);">Купити</button>
+            </li>
+        </ul>
+        </div>
+        
+        <div ng-controller="ShoppingListController1 as finalList">
+        <h3>Куплено</h3>
+            <div ng-if="finalList.finalList.length===0">Ще нічого не куплено</div>
+        <ul>
+        <li ng-repeat="item in finalList.finalList"> Купити {{item.quantity}} {{item.name}}
+            </li>
+        </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
